@@ -1,0 +1,15 @@
+{
+  "name": "brokoai-testing-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker_build": "sudo docker build -t brokoai-playwright-test .",
+    "docker_build_run": "sudo docker build -t brokoai-playwright-test . && sudo docker run brokoai-playwright-test",
+    "docker_build_run_tag_push": "aws ecr get-login-password --profile sc_lambda --region us-east-1 | sudo docker login --username AWS --password-stdin 840866376303.dkr.ecr.us-east-1.amazonaws.com && docker build --platform=linux/amd64 -t brokoai-playwright-test . && sudo docker tag brokoai-playwright-test:latest 840866376303.dkr.ecr.us-east-1.amazonaws.com/brokoai-playwright-test:latest && sudo docker push 840866376303.dkr.ecr.us-east-1.amazonaws.com/brokoai-playwright-test:latest"
+
+  },
+  "author": "",
+  "license": "ISC"
+}
